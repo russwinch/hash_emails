@@ -10,7 +10,7 @@ The output file is cleared before the input file data is processed.
 If anonymise is set (default) the first two columns are removed during
 processing.
 
-All algorithms available to hashlib are supported:
+All algorithms available to hashlib are supported (md5 is the default):
 * DSA
 * DSA-SHA
 * MD4
