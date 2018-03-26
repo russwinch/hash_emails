@@ -17,6 +17,7 @@ def hashfile(file_in, file_out, algorithm='sha256', anonymise=True):
     '''
     start_time = time.time()
     total_lines = 0
+
     with open(file_in) as f:
         for line in f:
             total_lines += 1
@@ -45,14 +46,19 @@ def hashfile(file_in, file_out, algorithm='sha256', anonymise=True):
 def collect_files():
     existing_outfile = False
     infile = input("Path to source file > ")
+
     if not os.access(infile, os.F_OK):
         raise IOError("Source file not found, ensure path is correct")
     outfile = input("Path to output file > ")
+
     if os.access(outfile, os.F_OK):
+        if infile == outfile:
+            raise IOError("Source and output file cannot be the same")
         existing_outfile = True
         if input("File exists. OK to overwrite? [y/n] > ") != 'y':
             raise IOError("""User declined to grant permission to overwrite
                             existing file with 'y'""")
+
     return infile, outfile, existing_outfile
 
 
@@ -66,4 +72,4 @@ if __name__ == '__main__':
     infile, outfile, existing_outfile = collect_files()
     if existing_outfile:
         clearfile(outfile)
-    hashfile(infile, outfile)  # , algorithm='sha256')  # , anonymise=False)
+    hashfile(infile, outfile)
