@@ -1,16 +1,18 @@
-Hashing for anonymising email addresses in a file.
+Anonymising email addresses in a file by hashing.
 ------
 
-File layout should be: 
+Input file layout should be: 
 1. contact number
 2. email
 3. segmentation
 
-The output file is cleared before the input file data is processed.
+Usage: python3 hash.py <source> <output> <algorithm>[optional]
+
+If the output file exists it is cleared before the input file is processed.
 If anonymise is set (default) the first two columns are removed during
 processing.
 
-All algorithms available to hashlib are supported (SHA256 is the default):
+SHA256 is the default but all algorithms available to hashlib are supported:
 * DSA
 * DSA-SHA
 * MD4
