@@ -12,3 +12,9 @@ def test_hasher_correctly_hashes():
     assert hash.hasher(
         'test@sha256', 'sha256'
     ) == 'd51b1a011757a3d341bae6afef309e3bf828729b30a73511849d0cb82825ae7c'
+
+def test_hashed_cannot_be_reversed():
+    assert hash.hasher(
+        'd51b1a011757a3d341bae6afef309e3bf828729b30a73511849d0cb82825ae7c',
+        'sha256'
+    ) != 'test@sha256'
