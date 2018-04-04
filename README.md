@@ -6,13 +6,13 @@ Input file layout should be:
 2. email
 3. segmentation
 
-Usage: python3 hash.py source output algorithm[optional]
+Usage: python3 hash.py [source file path] [output file path] [algorithm(optional)]
 
 If the output file exists it is cleared before the input file is processed.
 If anonymise is set (default) the first two columns are removed during
 processing.
 
-Tested on MacOS and Windows10.
+Tested on MacOS and Windows10 with Python 3.6
 
 SHA256 is the default but all algorithms available to hashlib are
 supported (platform and system dependent):
