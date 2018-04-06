@@ -42,6 +42,9 @@ def hashfile(file_in, file_out, algorithm, anonymise=True):
                 else:
                     out.write(hashed_email + '\n')
 
+            if total_lines % 1000 == 0:
+                print("{} lines processed".format(total_lines))
+
     total_time = round(time.time() - start_time, 6)
     print('{} lines processed in {} seconds using {}'.format(
         total_lines, total_time, algorithm))
